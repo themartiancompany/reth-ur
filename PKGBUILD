@@ -54,6 +54,7 @@ makedepends=(
   'git'
   'cargo'
   'clang'
+  'jemalloc'
 )
 _tag_name="commit"
 _tag="${_commit}"
