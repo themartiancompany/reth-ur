@@ -75,6 +75,22 @@ prepare() {
 }
 
 build() {
+  local \
+    _cargo_opts=()
+  _cargo_opts+=(
+    --bin
+      "${_pkg}"
+    --frozen
+    --profile
+      # Max performance profile
+      # may have issues linking
+      # jemalloc and ring, see
+      # https://github.com/paradigmxyz/reth/issues/14786
+      # "maxperf"
+      'release'
+    --features
+      "jemalloc,asm-keccak"
+  )
   cd \
     "${_pkg}"
   export \
