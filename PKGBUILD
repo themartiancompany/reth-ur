@@ -98,13 +98,7 @@ build() {
     CARGO_TARGET_DIR="target"
   cargo \
     build \
-    --bin \
-      "${_pkg}" \
-    --frozen \
-    --profile \
-      "maxperf" \
-    --features \
-      "jemalloc,asm-keccak"
+    "${_cargo_opts[@]}"
 }
 
 package() {
